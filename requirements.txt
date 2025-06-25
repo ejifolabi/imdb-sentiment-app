@@ -4,4 +4,4 @@ pandas
 scikit-learn
 beautifulsoup4
 gunicorn
-tensorflow
+tensorflow-cpu==2.13.0 
