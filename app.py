@@ -27,7 +27,7 @@ def clean_text(text):
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('/templates/index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -36,7 +36,7 @@ def predict():
     review_vec = vectorizer.transform([clean_review])
     prediction = model.predict(review_vec)[0]
     sentiment = "Positive 😊" if prediction == 1 else "Negative 😞"
-    return render_template('index.html', review=review, sentiment=sentiment)
+    return render_template('/templates/index.html', review=review, sentiment=sentiment)
 
 if __name__ == '__main__':
     app.run(debug=True)
