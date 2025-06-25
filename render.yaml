@@ -1,6 +1,6 @@
-- item1: services:
-- item2: - type: web
-- item3: name: imdb-sentiment-analyzer
-- item4: env: python
-- item5: buildCommand: pip install -r requirements.txt
-- item6: startCommand: gunicorn app:app
+services:
+  - type: web
+    name: imdb-lstm-sentiment
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
