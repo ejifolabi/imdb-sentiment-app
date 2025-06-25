@@ -16,7 +16,7 @@ from bs4 import BeautifulSoup
 app = Flask(__name__)
 
 # Load model and vectorizer
-model = load_model('/content/drive/MyDrive/DSA_CAPSTONE/sentiment_model.keras')
+model = load_model('/model/sentiment_model.keras')
 
 # Cleaning function
 def clean_text(text):
