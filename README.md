@@ -18,7 +18,7 @@ This is a web application for sentiment analysis of IMDb movie reviews using a t
 
 ## ▶️ Run Locally
 ```bash
-git clone https://github.com/yourusername/imdb-sentiment-app.git
+git clone https://github.com/ejifolabi/imdb-sentiment-app.git
 cd imdb-sentiment-app
 pip install -r requirements.txt
 python app.py
