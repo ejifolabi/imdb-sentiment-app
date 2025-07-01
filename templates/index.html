@@ -82,14 +82,12 @@
     <div class="container">
         <h1>🎬 IMDb Movie Review Sentiment Analyzer</h1>
         <form method="POST" action="/predict">
-            <textarea name="review" placeholder="Enter your movie review here..." required maxlength="1000">{{ review or '' }}</textarea><br>
+            <textarea name="review" placeholder="Enter your movie review here..." required maxlength="1000"></textarea><br>
             <input type="submit" value="Analyze Sentiment">
         </form>
-        {% if sentiment %}
         <div class="result {{ 'positive' if 'Positive' in sentiment else 'negative' }}">
             <strong>Sentiment:</strong> {{ sentiment }}
         </div>
-        {% endif %}
     </div>
 </body>
 
