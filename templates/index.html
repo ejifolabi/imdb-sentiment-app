@@ -1,7 +1,10 @@
+<!-- This is a Capstone Project by: Ejifolabi Emmanuel Oludare -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMDb Sentiment Analyzer</title>
     <style>
         body {
@@ -16,7 +19,7 @@
             margin: 60px auto;
             background-color: #ffffff;
             padding: 40px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             border-radius: 12px;
         }
 
@@ -47,6 +50,7 @@
             margin-top: 20px;
             display: block;
             width: 100%;
+            transition: background-color 0.2s ease-in-out;
         }
 
         input[type="submit"]:hover {
@@ -73,19 +77,20 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>🎬 IMDb Movie Review Sentiment Analyzer</h1>
         <form method="POST" action="/predict">
-            <textarea name="review" placeholder="Enter your movie review here..." required>{{ review or '' }}</textarea><br>
+            <textarea name="review" placeholder="Enter your movie review here..." required maxlength="1000">{{ review or '' }}</textarea><br>
             <input type="submit" value="Analyze Sentiment">
         </form>
-
         {% if sentiment %}
-            <div class="result {{ 'positive' if 'Positive' in sentiment else 'negative' }}">
-                <strong>Sentiment:</strong> {{ sentiment }}
-            </div>
+        <div class="result {{ 'positive' if 'Positive' in sentiment else 'negative' }}">
+            <strong>Sentiment:</strong> {{ sentiment }}
+        </div>
         {% endif %}
     </div>
 </body>
+
 </html>
