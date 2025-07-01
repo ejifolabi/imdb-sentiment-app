@@ -1,4 +1,3 @@
-from tensorflow.keras.models import load_model
 from flask import Flask, request, render_template
 import joblib
 import re
@@ -6,8 +5,9 @@ from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
-# Load model and vectorizer
-model = load_model('/sentiment_model.keras')
+# Loading the model and vectorizer
+model = joblib.load('/sentiment_model.pkl')
+vectorizer = joblib.load('/tfidf_vectorizer.pkl')
 
 # Cleaning function
 def clean_text(text):
@@ -18,7 +18,7 @@ def clean_text(text):
 
 @app.route('/')
 def home():
-    return render_template('/index.html')
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -27,7 +27,7 @@ def predict():
     review_vec = vectorizer.transform([clean_review])
     prediction = model.predict(review_vec)[0]
     sentiment = "Positive 😊" if prediction == 1 else "Negative 😞"
-    return render_template('/index.html', review=review, sentiment=sentiment)
+    return render_template('index.html', review=review, sentiment=sentiment)
 
 if __name__ == '__main__':
     app.run(debug=True)
